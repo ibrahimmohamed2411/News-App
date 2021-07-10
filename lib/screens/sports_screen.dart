@@ -6,11 +6,10 @@ import 'package:provider/provider.dart';
 class SportsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('Hello');
     var provider = Provider.of<Brain>(context, listen: false);
     return FutureBuilder(
-      future: Provider.of<Brain>(context, listen: false)
-          .getBusiness(Category.sports),
+      future:
+          Provider.of<Brain>(context, listen: false).getData(Category.sports),
       builder: (ctx, snapshot) {
         if (snapshot.hasError) {
           return Center(child: Text('Error'));
@@ -20,11 +19,11 @@ class SportsScreen extends StatelessWidget {
         }
         if (snapshot.hasData) {
           return ListView.separated(
-            physics: BouncingScrollPhysics(),
             itemBuilder: (ctx, index) => CustomNewsItem(
               date: provider.sports[index]['publishedAt'],
               title: provider.sports[index]['title'],
-              urlToImage: provider.sports[index]['urlToImage'] ?? 'rgrgr',
+              urlToImage:
+                  provider.sports[index]['urlToImage'] ?? Brain.notFoundImage,
             ),
             itemCount: provider.sports.length,
             separatorBuilder: (BuildContext context, int index) => Divider(

@@ -39,10 +39,7 @@ class CustomNewsItem extends StatelessWidget {
                   Expanded(
                     child: Text(
                       title,
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: Theme.of(context).textTheme.bodyText1,
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                     ),

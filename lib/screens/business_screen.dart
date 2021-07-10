@@ -7,8 +7,8 @@ class BusinessScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: Provider.of<Brain>(context, listen: false)
-          .getBusiness(Category.business),
+      future:
+          Provider.of<Brain>(context, listen: false).getData(Category.business),
       builder: (ctx, snapshot) {
         if (snapshot.hasError) {
           return Center(child: Text('Error'));
@@ -19,12 +19,11 @@ class BusinessScreen extends StatelessWidget {
         if (snapshot.hasData) {
           return Consumer<Brain>(
             builder: (ctx, Data, ch) => ListView.separated(
-              physics: BouncingScrollPhysics(),
               itemBuilder: (ctx, index) => CustomNewsItem(
                 date: Data.business[index]['publishedAt'],
                 title: Data.business[index]['title'],
                 urlToImage:
-                    Data.business[index]['urlToImage'] ?? 'No Image Found',
+                    Data.business[index]['urlToImage'] ?? Brain.notFoundImage,
               ),
               itemCount: Data.business.length,
               separatorBuilder: (BuildContext context, int index) => Divider(
