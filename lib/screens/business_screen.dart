@@ -24,6 +24,7 @@ class BusinessScreen extends StatelessWidget {
                 title: Data.business[index]['title'],
                 urlToImage:
                     Data.business[index]['urlToImage'] ?? Brain.notFoundImage,
+                url: Data.business[index]['url'],
               ),
               itemCount: Data.business.length,
               separatorBuilder: (BuildContext context, int index) => Divider(

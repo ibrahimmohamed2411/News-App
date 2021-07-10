@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:news_app/network/remote/dio_helper.dart';
@@ -28,9 +26,7 @@ class MyApp extends StatelessWidget {
   MyApp(this.isDark);
   @override
   Widget build(BuildContext context) {
-    print('Helo');
-    Provider.of<Brain>(context, listen: false)
-        .changeTheme(fromShared: isDark);
+    Provider.of<Brain>(context, listen: false).changeTheme(fromShared: isDark);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -43,6 +39,7 @@ class MyApp extends StatelessWidget {
         ),
         iconTheme: IconThemeData(
           color: Colors.black,
+          opacity: 1,
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Colors.deepOrange,

@@ -24,6 +24,7 @@ class ScienceScreen extends StatelessWidget {
                 title: Data.science[index]['title'],
                 urlToImage:
                     Data.science[index]['urlToImage'] ?? Brain.notFoundImage,
+                url: Data.business[index]['url'],
               ),
               itemCount: Data.science.length,
               separatorBuilder: (BuildContext context, int index) => Divider(

@@ -20,6 +20,7 @@ class SportsScreen extends StatelessWidget {
         if (snapshot.hasData) {
           return ListView.separated(
             itemBuilder: (ctx, index) => CustomNewsItem(
+              url: provider.business[index]['url'],
               date: provider.sports[index]['publishedAt'],
               title: provider.sports[index]['title'],
               urlToImage:

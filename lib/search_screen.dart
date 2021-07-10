@@ -37,6 +37,7 @@ class SearchScreen extends StatelessWidget {
                 builder: (ctx, Data, child) => ListView.builder(
                   itemCount: Data.search.length,
                   itemBuilder: (ctx, index) => CustomNewsItem(
+                      url: Data.search[index]['url'],
                       date: Data.search[index]['publishedAt'],
                       title: Data.search[index]['title'],
                       urlToImage: Data.search[index]['urlToImage']),

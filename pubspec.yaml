@@ -32,6 +32,7 @@ dependencies:
   dio: ^4.0.0
   shared_preferences: ^2.0.6
   awesome_dialog: ^2.1.0
+  webview_flutter: ^2.0.9
 
 
 #  hexcolor: ^2.0.4
