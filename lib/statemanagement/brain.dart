@@ -5,7 +5,6 @@ import 'package:news_app/network/remote/dio_helper.dart';
 import 'package:news_app/network/local/cache_helper.dart';
 import 'package:news_app/screens/business_screen.dart';
 import 'package:news_app/screens/science_screen.dart';
-import 'package:news_app/screens/settings_screen.dart';
 import 'package:news_app/screens/sports_screen.dart';
 
 enum Category { business, sports, science }
@@ -39,6 +38,19 @@ class Brain extends ChangeNotifier {
   List<dynamic> business = [];
   List<dynamic> sports = [];
   List<dynamic> science = [];
+  List<dynamic> search = [];
+  Future<void> getSearch(String value) async {
+    final response = await DioHelper.getData(
+      url: 'https://newsapi.org/v2/everything',
+      query: {
+        'q': value,
+        'apiKey': _API_KEY,
+      },
+    );
+    search = response.data['articles'];
+    print(search[0]['title']);
+    notifyListeners();
+  }
 
   bool _isDark = false;
   bool get isDark => _isDark;

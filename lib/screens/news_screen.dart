@@ -2,10 +2,11 @@ import 'dart:io';
 
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:news_app/network/remote/dio_helper.dart';
+
 import 'package:news_app/statemanagement/brain.dart';
 import 'package:provider/provider.dart';
+
+import '../search_screen.dart';
 
 class NewsScreen extends StatelessWidget {
   @override
@@ -17,7 +18,13 @@ class NewsScreen extends StatelessWidget {
           titleSpacing: 20,
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (ctx) => SearchScreen(),
+                  ),
+                );
+              },
               icon: Icon(
                 Icons.search,
                 color: Theme.of(context).iconTheme.color,

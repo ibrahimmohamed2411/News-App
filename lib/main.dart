@@ -2,10 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// import 'package:hexcolor/hexcolor.dart';
 import 'package:news_app/network/remote/dio_helper.dart';
 import 'package:news_app/network/local/cache_helper.dart';
 import 'package:news_app/screens/news_screen.dart';
+
 import 'package:news_app/statemanagement/brain.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print('Helo');
-    var p = Provider.of<Brain>(context, listen: false)
+    Provider.of<Brain>(context, listen: false)
         .changeTheme(fromShared: isDark);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
